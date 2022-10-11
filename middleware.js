@@ -15,8 +15,9 @@ module.exports.isLoggedIn = (req, res, next) => {
 
 module.exports.isAdmin = (req, res, next) => {
   if (!(req.user && req.user._id == adminID)) {
+    req.session.returnTo = req.originalUrl;
     req.flash('error', '관리자 권한이 필요한 서비스입니다');
-    return res.redirect('/');
+    return res.redirect('/login');
   }
   next();
 }
