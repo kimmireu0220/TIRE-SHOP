@@ -32,5 +32,9 @@
       <input type="number" class="form-control" id="quantity" value="<%= wheel.quantity %>" min=0 name=wheel[quantity]"
         required>
     </div>
+    <div class="form-group my-5 d-none">
+      <label for="owner" class="mb-3 ml-1">관리자 아이디</label>
+      <input type="text" class="form-control" id="owner" value="<%= currentUser._id %> " name=wheel[owner]" required>
+    </div>
     <button type="submit" class="btn btn-primary float-right mb-5">편집하기</button>
   </form>

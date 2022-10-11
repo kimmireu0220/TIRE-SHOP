@@ -1,6 +1,13 @@
 const User = require('../models/user');
 let redirectUrl;
 
+module.exports.goToMyReservations = async (req, res) => {
+  let count = 1;
+  const { user } = req;
+  const { reservations } = await user.populate('reservations');
+  res.render('users/reservations', { reservations, count });
+}
+
 module.exports.goToRegister = (req, res) => {
   res.render('users/register');
 }

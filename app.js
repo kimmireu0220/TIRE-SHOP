@@ -67,6 +67,7 @@ const othersRoutes = require('./routes/others');
 const bmwRoutes = require('./routes/bmw');
 const benzRoutes = require('./routes/benz');
 const importedothersRoutes = require('./routes/importedothers');
+const reservation = require('./models/reservation');
 
 app.use('/', homeRoutes);
 app.use('/', registerRoutes);

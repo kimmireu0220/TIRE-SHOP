@@ -59,9 +59,11 @@
         <a href="/login" class="nav-link mx-2">로그인</a>
         <a href="/register" class="nav-link mx-2">회원가입</a>
         <% } else {%>
+          <a href="/myReservations" class="nav-link mx-2 mt-2">나의 예약 내역</a>
           <form action="/logout" class="nav-link mx-2" method="POST">
             <button class="btn btn-dark">로그아웃</button>
           </form>
+
           <% } %>
     </div>
   </div>
