@@ -1,6 +1,6 @@
 const Reservation = require('../models/reservation');
 
-module.exports.list = async (req, res) => {
+module.exports.index = async (req, res) => {
   let count = 1;
   const reservations = await Reservation.find({});
   res.render('reservation/list', { reservations, count });
