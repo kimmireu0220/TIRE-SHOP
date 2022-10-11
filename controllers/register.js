@@ -9,3 +9,4 @@ module.exports.wheel = async (req, res) => {
   await wheel.save();
   res.redirect(`/wheels/${wheel._id}`);
 }
+
