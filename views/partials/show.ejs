@@ -1,0 +1,26 @@
+<div class="container py-5">
+  <div class="row align-items-end mb-5">
+    <% for(let wheel of wheels) { %>
+      <div class="col-3">
+        <div class="card my-3">
+          <img src="<%= wheel.image %> " alt="">
+          <div class="card-body">
+            <p class="card-text">
+              <span>
+                <%= wheel.category %>
+              </span>
+              <br>
+              <a href="<%= category %>/<%= wheel._id %>">
+                <%= wheel.name %>
+              </a>
+              <br>
+              <span>
+                <%= wheel.price.toLocaleString() %>원
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+  </div>
+</div>

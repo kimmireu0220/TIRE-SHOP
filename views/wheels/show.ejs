@@ -1,0 +1,34 @@
+<% layout('layouts/boilerplate') %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="card mb-5">
+        <img class="card-img-top" src=<%=wheel.image %> alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">
+            <%= wheel.name %>
+          </h2>
+          <h4 class="card-text my-3">
+            ₩ <%= wheel.price.toLocaleString() %>
+          </h4>
+          <h5 class="card-text"> 재고 : <%= wheel.quantity %>개</h5>
+        </div>
+        <div class="card-body">
+          <% if(currentUser &&currentUser._id=='63403b56cdaecbb9d7cd7820' ) { %>
+            <div class="row">
+              <div class="col-3">
+                <a class="btn btn-info" href="<%= showPageUrl %>/edit">편집하기</a>
+              </div>
+              <div class="col-3">
+                <form action="<%= showPageUrl %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">삭제하기</button>
+                </form>
+              </div>
+              <% } %>
+                <div class="col">
+                  <a href="<%= showPageUrl %>/reserve" class="card-link float-right mt-2 mr-3">예약하기</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

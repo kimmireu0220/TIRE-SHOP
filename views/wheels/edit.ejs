@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate') %>
+  <h1 class="my-3">편집하기</h1>
+  <form action="<%= editPageUrl %>?_method=PUT" method="POST" novalidate class="validated-form">
+    <div class="form-group mt-5">
+      <label for="category" class="mb-3 ml-1">제품 카테고리</label>
+      <div>
+        <select name="wheel[category]" id="category">
+          <option value="현대">현대</option>
+          <option value="기아">기아</option>
+          <option value="기타 차량">기타 차량</option>
+          <option value="BMW">BMW</option>
+          <option value="벤츠">벤츠</option>
+          <option value="기타 수입 차량">기타 수입 차량</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group my-5">
+      <label for="name" class="mb-3 ml-1">제품명</label>
+      <input type="text" class="form-control" id="name" value="<%= wheel.name %>" name="wheel[name]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="image" class="mb-3 ml-1">제품 이미지</label>
+      <input type="text" class="form-control" id="image" value="<%= wheel.image %>" name="wheel[image]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="price" class="mb-3 ml-1">가격</label>
+      <input type="number" class="form-control" id="price" value="<%= wheel.price %>" min=0 step="100"
+        name="wheel[price]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="quantity" class="mb-3 ml-1">재고</label>
+      <input type="number" class="form-control" id="quantity" value="<%= wheel.quantity %>" min=0 name=wheel[quantity]"
+        required>
+    </div>
+    <button type="submit" class="btn btn-primary float-right mb-5">편집하기</button>
+  </form>

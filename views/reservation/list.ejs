@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+  <div class="row justify-content-center align-self-center">
+    <h1 class="my-5">예약자 내역</h1>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">제품명</th>
+          <th scope="col">개수</th>
+          <th scope="col">예약자 성함</th>
+          <th scope="col">예약자 아이디</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <% for(let reservation of reservations) { %>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <%= count %>
+            </th>
+            <td>
+              <%= reservation.wheelName %>
+            </td>
+            <td>
+              <%= reservation.wheelQuantity %>
+            </td>
+            <td>
+              <%= reservation.customerName %>
+            </td>
+            <td>
+              <%= reservation.customerID %>
+            </td>
+            <td>
+              <form action="/reservations/<%= reservation._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">
+                  삭제
+                </button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+        <% count++; %>
+          <% } %>
+    </table>
+  </div>

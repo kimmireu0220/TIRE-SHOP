@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <img src=" https://wheeltire.itpage.kr/user/w/wheeltire/20201008173315_dkNCiZAh.png" alt="" width="350px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown mx-3">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          업체 소개
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/greeting">인사말</a>
+          <a class="dropdown-item" href="/show">둘러보기</a>
+          <a class="dropdown-item" href="/direction">오시는 길</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown mx-3">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          국산휠
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/hyundai">현대</a>
+          <a class="dropdown-item" href="/kia">기아</a>
+          <a class="dropdown-item" href="/others">기타 차량</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown mx-3">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          수입휠
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/benz">벤츠</a>
+          <a class="dropdown-item" href="/bmw">BMW</a>
+          <a class="dropdown-item" href="/importedothers">기타 수입차량</a>
+        </div>
+      </li>
+      <% if(currentUser && currentUser._id=='63403b56cdaecbb9d7cd7820' ) { %>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            관리자 메뉴
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/reservations">예약자 명단</a>
+            <a class="dropdown-item" href="/wheels">제품 등록</a>
+          </div>
+        </li>
+        <% } %>
+    </ul>
+    <div class="navbar-nav mr-5">
+      <% if(!currentUser) {%>
+        <a href="/login" class="nav-link mx-2">로그인</a>
+        <a href="/register" class="nav-link mx-2">회원가입</a>
+        <% } else {%>
+          <form action="/logout" class="nav-link mx-2" method="POST">
+            <button class="btn btn-dark">로그아웃</button>
+          </form>
+          <% } %>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+  <h1 class="my-3">제품 등록하기</h1>
+  <form action="/wheels" method="POST" novalidate class="validated-form">
+    <div class="form-group mt-5">
+      <label for="category" class="mb-3 ml-1">제품 카테고리</label>
+      <div>
+        <select name="wheel[category]" id="category">
+          <option value="현대">현대</option>
+          <option value="기아">기아</option>
+          <option value="기타 차량">기타 차량</option>
+          <option value="BMW">BMW</option>
+          <option value="벤츠">벤츠</option>
+          <option value="기타 수입 차량">기타 수입 차량</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group my-5">
+      <label for="name" class="mb-3 ml-1">제품명</label>
+      <input type="text" class="form-control" id="name" name="wheel[name]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="image" class="mb-3 ml-1">제품 이미지</label>
+      <input type="text" class="form-control" id="image" name="wheel[image]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="price" class="mb-3 ml-1">가격</label>
+      <input type="number" class="form-control" id="price" min=0 step="100" name="wheel[price]" required>
+    </div>
+    <div class="form-group my-5">
+      <label for="quantity" class="mb-3 ml-1">재고</label>
+      <input type="number" class="form-control" id="quantity" min=0 name=wheel[quantity]" required>
+    </div>
+    <div class="form-group my-5 d-none">
+      <label for="owner" class="mb-3 ml-1">제품 등록자 아이디</label>
+      <input type="text" class="form-control" id="owner" value="<%= currentUser._id %> " name=wheel[owner]" required>
+    </div>
+    <button type="submit" class="btn btn-primary float-right mb-5">등록하기</button>
+  </form>
