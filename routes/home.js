@@ -9,6 +9,6 @@ router.get('/greeting', home.greeting)
 
 router.get('/show', home.show)
 
-router.get('/navigation', home.direction)
+router.get('/direction', home.direction)
 
 module.exports = router;

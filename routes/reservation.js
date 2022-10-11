@@ -5,9 +5,9 @@ const { isLoggedIn, isAdmin } = require('../middleware');
 const reservation = require('../controllers/reservation')
 
 router.route('/')
-  .get(isLoggedIn, isAdmin, catchAsync(reservation.list))
+  .get(isAdmin, catchAsync(reservation.index))
   .post(isLoggedIn, catchAsync(reservation.wheel))
 
-router.delete('/:id', isLoggedIn, isAdmin, catchAsync(reservation.delete))
+router.delete('/:id', isAdmin, catchAsync(reservation.delete))
 
 module.exports = router;

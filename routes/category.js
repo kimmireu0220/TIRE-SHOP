@@ -6,10 +6,10 @@ const category = require('../controllers/category');
 
 router.route('/:id')
   .get(catchAsync(category.goToShow))
-  .put(isLoggedIn, isAdmin, catchAsync(category.editWheel))
-  .delete(isLoggedIn, isAdmin, catchAsync(category.deleteWheel))
+  .put(isAdmin, catchAsync(category.editWheel))
+  .delete(isAdmin, catchAsync(category.deleteWheel))
 
-router.get('/:id/edit', isLoggedIn, isAdmin, catchAsync(category.goToEdit))
+router.get('/:id/edit', isAdmin, catchAsync(category.goToEdit))
 
 router.get('/:id/reserve', isLoggedIn, catchAsync(category.goToReserve))
 
