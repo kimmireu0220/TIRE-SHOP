@@ -59,11 +59,19 @@
         <a href="/login" class="nav-link mx-2">로그인</a>
         <a href="/register" class="nav-link mx-2">회원가입</a>
         <% } else {%>
-          <a href="/myReservations" class="nav-link mx-2 mt-2">나의 예약 내역</a>
+          <li class="nav-item dropdown mx-3 mt-2">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              마이 페이지
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="/myReservations" class="dropdown-item">나의 예약 내역</a>
+              <a href="/edit" class="dropdown-item">회원 정보 수정</a>
+            </div>
+          </li>
           <form action="/logout" class="nav-link mx-2" method="POST">
             <button class="btn btn-dark">로그아웃</button>
           </form>
-
           <% } %>
     </div>
   </div>

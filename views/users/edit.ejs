@@ -1,0 +1,13 @@
+<% layout('layouts/boilerplate') %>
+  <h1 class="mb-5">회원 정보 수정 페이지</h1>
+  <form action="/edit" method="POST" class="validated-form" novalidate>
+    <div class="mb-3">
+      <label for="" class="form-label" for="newPassword">비밀번호</label>
+      <input type="password" class="form-control" id="newPassword" name="password">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label" for="newEmail">이메일</label>
+      <input type="email" class="form-control" id="newEmail" name="email">
+    </div>
+    <button class="btn btn-info">회원정보 수정</button>
+  </form>

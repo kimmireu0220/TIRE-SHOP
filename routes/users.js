@@ -5,6 +5,10 @@ const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn } = require('../middleware');
 const users = require('../controllers/users');
 
+router.route('/edit')
+  .get(isLoggedIn, users.goToEditUser)
+  .post(isLoggedIn, catchAsync(users.editUser))
+
 router.get('/myReservations', isLoggedIn, catchAsync(users.goToMyReservations))
 
 router.route('/register')

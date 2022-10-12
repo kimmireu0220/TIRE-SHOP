@@ -1,6 +1,15 @@
 const User = require('../models/user');
 let redirectUrl;
 
+module.exports.goToEditUser = async (req, res) => {
+  res.render('users/edit');
+}
+
+module.exports.editUser = async (req, res, next) => {
+  console.log('회원 정보 수정 함수 실행');
+  res.redirect('/');
+}
+
 module.exports.goToMyReservations = async (req, res) => {
   let count = 1;
   const { user } = req;
