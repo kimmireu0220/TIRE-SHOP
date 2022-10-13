@@ -2,10 +2,8 @@ if (process.env.NODE_ENV !== "production") {
   require('dotenv').config();
 }
 
-const adminID = process.env.ADMIN_ID;
-
-const { wheelSchema, reservationSchema } = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
+const { wheelSchema, reservationSchema } = require('./schemas.js');
 
 module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -15,6 +13,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   }
   next();
 }
+
+const adminID = process.env.ADMIN_ID;
 
 module.exports.isAdmin = (req, res, next) => {
   if (!(req.user && req.user._id == adminID)) {

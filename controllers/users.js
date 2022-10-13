@@ -6,8 +6,7 @@ module.exports.goToEditUser = async (req, res) => {
 }
 
 module.exports.editUser = async (req, res, next) => {
-  console.log('회원 정보 수정 함수 실행');
-  res.redirect('/');
+  res.send('회원 정보 수정 중..')
 }
 
 module.exports.goToMyReservations = async (req, res) => {
