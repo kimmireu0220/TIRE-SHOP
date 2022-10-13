@@ -13,7 +13,7 @@
           <h5 class="card-text"> 재고 : <%= wheel.quantity %>개</h5>
         </div>
         <div class="card-body">
-          <% if(currentUser &&currentUser._id=='63403b56cdaecbb9d7cd7820' ) { %>
+          <% if(currentUser &&currentUser.username=='admin' ) { %>
             <div class="row">
               <div class="col-3">
                 <a class="btn btn-info" href="<%= showPageUrl %>/edit">편집하기</a>

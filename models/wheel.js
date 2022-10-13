@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const Reservation = require('./reservation');
+const User = require('./user');
 
 const WheelSchema = new Schema({
   name: {
@@ -28,6 +30,22 @@ const WheelSchema = new Schema({
     type: String,
     required: true,
   },
+  reservations: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Reservation'
+    }
+  ]
+});
+
+WheelSchema.post('findOneAndDelete', async function (doc) {
+  if (doc) {
+    await Reservation.deleteMany({
+      _id: {
+        $in: doc.reservations
+      }
+    })
+  }
 })
 
 module.exports = mongoose.model('Wheel', WheelSchema);

@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
   <h1 class="my-3">예약하기</h1>
-  <form action="/reservations" method="POST" novalidate class="validated-form">
+  <form action="/wheel/<%= wheel._id %>/reserve" method="POST" novalidate class="validated-form">
     <div class="form-group my-5">
       <label for="wheelName" class="mb-3 ml-1">제품명</label>
       <div class="form-control">
