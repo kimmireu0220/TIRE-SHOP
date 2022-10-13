@@ -2,12 +2,12 @@
   <h1 class="mb-5">회원 정보 수정 페이지</h1>
   <form action="/edit" method="POST" class="validated-form" novalidate>
     <div class="mb-3">
-      <label for="" class="form-label" for="newPassword">비밀번호</label>
-      <input type="password" class="form-control" id="newPassword" name="password">
+      <label for="oldPassword" class="form-label">기존 비밀번호</label>
+      <input type="password" class="form-control" id="oldPassword" name="oldPassword">
     </div>
     <div class="mb-3">
-      <label for="" class="form-label" for="newEmail">이메일</label>
-      <input type="email" class="form-control" id="newEmail" name="email">
+      <label for="newPassword" class="form-label">새 비밀번호</label>
+      <input type="password" class="form-control" id="newPassword" name="newPassword">
     </div>
     <button class="float-right btn btn-info mt-3">회원정보 수정</button>
   </form>

@@ -1,13 +1,23 @@
 const User = require('../models/user');
 let redirectUrl;
 
-module.exports.goToEditUser = async (req, res) => {
+module.exports.goToEditUser = (req, res) => {
   res.render('users/edit');
 }
 
-module.exports.editUser = async (req, res, next) => {
-  res.send('회원 정보 수정 중..')
-}
+module.exports.editUser = async (req, res) => {
+  const { user } = req;
+  const { oldPassword, newPassword } = req.body;
+  user.changePassword(oldPassword, newPassword, (err) => {
+    if (err) {
+      req.flash('error', "수정 실패!");
+      res.redirect('/edit');
+    } else {
+      req.flash('success', "수정 완료!");
+      res.redirect('/')
+    }
+  });
+};
 
 module.exports.goToMyReservations = async (req, res) => {
   let count = 1;
