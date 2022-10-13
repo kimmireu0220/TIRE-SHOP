@@ -1,11 +1,11 @@
 const User = require('../models/user');
 let redirectUrl;
 
-module.exports.goToEditUser = (req, res) => {
+module.exports.goToEdit = (req, res) => {
   res.render('users/edit');
 }
 
-module.exports.editUser = async (req, res) => {
+module.exports.edit = async (req, res) => {
   const { user } = req;
   const { oldPassword, newPassword } = req.body;
   user.changePassword(oldPassword, newPassword, (err) => {
@@ -30,7 +30,7 @@ module.exports.goToRegister = (req, res) => {
   res.render('users/register');
 }
 
-module.exports.registerUser = async (req, res, next) => {
+module.exports.register = async (req, res, next) => {
   try {
     const { username, password, email } = req.body;
     const user = new User({ username, email });

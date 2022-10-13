@@ -56,29 +56,17 @@ app.use((req, res, next) => {
 
 module.exports = wheelsPerPage = 1;
 
-const homeRoutes = require('./routes/home');
-const registerRoutes = require('./routes/register');
+const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/users');
-const reservationRoutes = require('./routes/reservation');
+const homeRoutes = require('./routes/home');
 const categoryRoutes = require('./routes/category');
-const hyundaiRoutes = require('./routes/hyundai');
-const kiaRoutes = require('./routes/kia');
-const othersRoutes = require('./routes/others');
-const bmwRoutes = require('./routes/bmw');
-const benzRoutes = require('./routes/benz');
-const importedothersRoutes = require('./routes/importedothers');
+const wheelRoutes = require('./routes/wheel');
 
-app.use('/', homeRoutes);
-app.use('/', registerRoutes);
+app.use('/', adminRoutes);
 app.use('/', userRoutes);
-app.use('/reservations', reservationRoutes)
-app.use('/:category', categoryRoutes);
-app.use('/hyundai', hyundaiRoutes);
-app.use('/kia', kiaRoutes);
-app.use('/others', othersRoutes);
-app.use('/bmw', bmwRoutes);
-app.use('/benz', benzRoutes);
-app.use('/importedothers', importedothersRoutes);
+app.use('/', homeRoutes);
+app.use('/', categoryRoutes);
+app.use('/:company', wheelRoutes);
 
 app.all('*', (req, res, next) => {
   next(new ExpressError('Page Not Found(404)', 404))

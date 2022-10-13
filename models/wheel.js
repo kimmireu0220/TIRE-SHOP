@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const Reservation = require('./reservation');
-const User = require('./user');
 
 const WheelSchema = new Schema({
   name: {

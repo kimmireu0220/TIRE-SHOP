@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
   <h1 class="my-3">편집하기</h1>
-  <form action="<%= editPageUrl %>?_method=PUT" method="POST" novalidate class="validated-form">
+  <form action="<%= originalUrl %>?_method=PUT" method="POST" novalidate class="validated-form">
     <div class="form-group mt-5">
       <label for="category" class="mb-3 ml-1">제품 카테고리</label>
       <div>

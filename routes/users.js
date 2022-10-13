@@ -5,15 +5,15 @@ const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn } = require('../middleware');
 const users = require('../controllers/users');
 
-router.route('/edit')
-  .get(isLoggedIn, users.goToEditUser)
-  .post(isLoggedIn, catchAsync(users.editUser))
+router.route('/edit_user')
+  .get(isLoggedIn, users.goToEdit)
+  .post(isLoggedIn, catchAsync(users.edit))
 
-router.get('/myReservations', isLoggedIn, catchAsync(users.goToMyReservations))
+router.get('/my_reservations', isLoggedIn, catchAsync(users.goToMyReservations))
 
-router.route('/register')
+router.route('/register_user')
   .get(users.goToRegister)
-  .post(catchAsync(users.registerUser))
+  .post(catchAsync(users.register))
 
 router.route('/login')
   .get(users.goToLogin)

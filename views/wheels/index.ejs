@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+  <div class="row justify-content-center align-self-center">
+    <h1>
+      <%= companyKR %>
+    </h1>
+    <div class="container py-5">
+      <div class="row align-items-end mb-5">
+        <% for(let wheel of wheels) { %>
+          <div class="col-3">
+            <div class="card my-3">
+              <img src="<%= wheel.image %> " alt="">
+              <div class="card-body">
+                <p class="card-text">
+                  <span>
+                    <%= wheel.category %>
+                  </span>
+                  <br>
+                  <a href="<%= companyEN %>/<%= wheel._id %>">
+                    <%= wheel.name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= wheel.price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+    <div class="row justify-content-center align-self-center my-5">
+      <form class="form-inline" method="GET">
+        <button type="submit" class="btn btn-primary mx-3" value="1" name="page">1</button>
+        <button type="submit" class="btn btn-primary mx-3" value="2" name="page">2</button>
+        <button type="submit" class="btn btn-primary mx-3" value="3" name="page">3</button>
+      </form>
+    </div>
+  </div>

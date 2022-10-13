@@ -4,327 +4,135 @@
     <div class="container pt-5"">
       <h2 class=" my-3"><a href="/hyundai">국산휠 / 현대</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= hyundaiWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="hyundai/<%= hyundaiWheels[0]._id %>">
-                  <%= hyundaiWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= hyundaiWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= hyundaiWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="hyundai/<%= hyundaiWheels[i]._id %>">
+                    <%= hyundaiWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= hyundaiWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= hyundaiWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="hyundai/<%= hyundaiWheels[1]._id %>">
-                  <%= hyundaiWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= hyundaiWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= hyundaiWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="hyundai/<%= hyundaiWheels[2]._id %>">
-                  <%= hyundaiWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= hyundaiWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
       <h2 class=" my-3"><a href="/kia">국산휠 / 기아</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= kiaWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="kia/<%= kiaWheels[0]._id %>">
-                  <%= kiaWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= kiaWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= kiaWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="kia/<%= kiaWheels[i]._id %>">
+                    <%= kiaWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= kiaWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= kiaWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="kia/<%= kiaWheels[1]._id %>">
-                  <%= kiaWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= kiaWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= kiaWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="kia/<%= kiaWheels[2]._id %>">
-                  <%= kiaWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= kiaWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
       <h2 class=" my-3"><a href="/others">국산휠 / 기타 차량</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= othersWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="others/<%= othersWheels[0]._id %>">
-                  <%= othersWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= othersWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= othersWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="others/<%= othersWheels[i]._id %>">
+                    <%= othersWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= othersWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= othersWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="others/<%= othersWheels[1]._id %>">
-                  <%= othersWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= othersWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= othersWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="others/<%= othersWheels[2]._id %>">
-                  <%= othersWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= othersWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
       <h2 class=" my-3"><a href="/bmw">수입휠 / BMW</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= bmwWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="bmw/<%= bmwWheels[0]._id %>">
-                  <%= bmwWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= bmwWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= bmwWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="bmw/<%= bmwWheels[i]._id %>">
+                    <%= bmwWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= bmwWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= bmwWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="bmw/<%= bmwWheels[1]._id %>">
-                  <%= bmwWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= bmwWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= bmwWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="bmw/<%= bmwWheels[2]._id %>">
-                  <%= bmwWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= bmwWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
       <h2 class=" my-3"><a href="/benz">수입휠 / 벤츠</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= benzWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="benz/<%= benzWheels[0]._id %>">
-                  <%= benzWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= benzWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= benzWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="benz/<%= benzWheels[i]._id %>">
+                    <%= benzWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= benzWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= benzWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="benz/<%= benzWheels[1]._id %>">
-                  <%= benzWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= benzWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= benzWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="benz/<%= benzWheels[2]._id %>">
-                  <%= benzWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= benzWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
       <h2 class=" my-3"><a href="/importedothers">수입휠 / 기타 수입 차량</a></h2>
       <div class="row align-items-end mb-5">
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= importedothersWheels[0].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="importedothers/<%= importedothersWheels[0]._id %>">
-                  <%= importedothersWheels[0].name %>
-                </a>
-                <br>
-                <span>
-                  <%= importedothersWheels[0].price.toLocaleString() %>원
-                </span>
-              </p>
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= importedothersWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="importedothers/<%= importedothersWheels[i]._id %>">
+                    <%= importedothersWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= importedothersWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= importedothersWheels[1].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="importedothers/<%= importedothersWheels[1]._id %>">
-                  <%= importedothersWheels[1].name %>
-                </a>
-                <br>
-                <span>
-                  <%= importedothersWheels[1].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card my-3">
-            <img src="<%= importedothersWheels[2].image %> " alt="">
-            <div class="card-body">
-              <i class="fa-solid fa-medal"></i>
-              <p class="card-text">
-                <a href="importedothers/<%= importedothersWheels[2]._id %>">
-                  <%= importedothersWheels[2].name %>
-                </a>
-                <br>
-                <span>
-                  <%= importedothersWheels[2].price.toLocaleString() %>원
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+          <% } %>
       </div>
     </div>
   </div>

@@ -1,54 +1,45 @@
 const Wheel = require('../models/wheel');
-const Reservation = require('../models/reservation');
+const wheelsPerPage = require('../app');
 
-module.exports.goToShow = async (req, res) => {
-  const { id } = req.params;
-  const wheel = await Wheel.findById(id);
-  const showPageUrl = req.originalUrl;
-  res.render('wheels/show', { wheel, showPageUrl });
+async function setIndex(companyKR, companyEN, page, res) {
+  const allWheels = await Wheel.find({ category: companyKR });
+  const wheels = [];
+  if (page == undefined || page == 1) {
+    for (let i = 0; i < wheelsPerPage; i++) {
+      wheels.push(allWheels[i]);
+    }
+  } else if (page == 2) {
+    for (let i = wheelsPerPage; i < wheelsPerPage * 2; i++) {
+      wheels.push(allWheels[i]);
+    }
+  } else if (page == 3) {
+    for (let i = wheelsPerPage * 2; i < allWheels.length; i++) {
+      wheels.push(allWheels[i]);
+    }
+  }
+  res.render('wheels/index', { wheels, companyKR, companyEN });
 }
 
-module.exports.editWheel = async (req, res) => {
-  const { id } = req.params;
-  await Wheel.findByIdAndUpdate(id, { ...req.body.wheel });
-  const redirectUrl = req.originalUrl.replace('?_method=PUT', '');
-  req.flash('success', '편집 완료!');
-  res.redirect(redirectUrl);
+module.exports.hyundai = async (req, res) => {
+  setIndex('현대', 'hyundai', req.query.page, res);
 }
 
-module.exports.deleteWheel = async (req, res) => {
-  const { id } = req.params;
-  await Wheel.findByIdAndDelete(id);
-  const redirectUrl = req.originalUrl.replace(`/${id}?_method=DELETE`, '');
-  req.flash('success', '삭제 완료!');
-  res.redirect(redirectUrl);
+module.exports.kia = async (req, res) => {
+  setIndex('기아', 'kia', req.query.page, res);;
 }
 
-module.exports.goToEdit = async (req, res) => {
-  const { id } = req.params;
-  const wheel = await Wheel.findById(id);
-  const editPageUrl = req.originalUrl.replace('/edit', '');
-  res.render('wheels/edit', { wheel, editPageUrl });
+module.exports.others = async (req, res) => {
+  setIndex('기타 차량', 'others', req.query.page, res);
 }
 
-module.exports.goToReserve = async (req, res) => {
-  const { id } = req.params;
-  const wheel = await Wheel.findById(id);
-  res.render("reservation/form", { wheel });
+module.exports.bmw = async (req, res) => {
+  setIndex('BMW', 'bmw', req.query.page, res);
 }
 
-module.exports.reserveWheel = async (req, res, next) => {
-  const { id } = req.params;
-  const wheel = await Wheel.findById(id);
-  const { user } = req;
-  const reservation = new Reservation(req.body.reservation);
-  user.reservations.push(reservation);
-  wheel.reservations.push(reservation);
-  await reservation.save();
-  await user.save();
-  await wheel.save();
-  req.flash('success', '예약 완료!');
-  res.redirect('/');
+module.exports.benz = async (req, res) => {
+  setIndex('벤츠', 'benz', req.query.page, res);
 }
 
-
+module.exports.importedothers = async (req, res) => {
+  setIndex('기타 수입 차량', 'importedothers', req.query.page, res);
+}
