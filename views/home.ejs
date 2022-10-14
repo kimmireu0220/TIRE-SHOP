@@ -1,138 +1,49 @@
-<% layout('layouts/boilerplate') %>
-  <div class="row justify-content-center align-self-center">
-    <h1>추 천 상 품</h1>
-    <div class="container pt-5"">
-      <h2 class=" my-3"><a href="/hyundai">국산휠 / 현대</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= hyundaiWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="hyundai/<%= hyundaiWheels[i]._id %>">
-                    <%= hyundaiWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= hyundaiWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대전 중고 휠 & 타이어</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body class="d-flex text-center text-white bg-dark">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <a class="navbar-brand float-left" href="/">
+          <img src=" https://wheeltire.itpage.kr/user/w/wheeltire/20201008173315_dkNCiZAh.png" alt="" width="350px">
+        </a>
+        <nav class="nav nav-masthead justify-content-center float-md-right mt-3">
+          <a class="nav-link active" aria-current="page" href="/">홈페이지</a>
+          <% if(!currentUser) { %>
+            <a class="nav-link" href="/login">로그인</a>
+            <a class="nav-link" href="/register_user">회원가입</a>
+            <% } else { %>
+              <a class="nav-link" href="/logout">로그아웃</a>
+              <% } %>
+        </nav>
       </div>
-      <h2 class=" my-3"><a href="/kia">국산휠 / 기아</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= kiaWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="kia/<%= kiaWheels[i]._id %>">
-                    <%= kiaWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= kiaWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-      </div>
-      <h2 class=" my-3"><a href="/others">국산휠 / 기타 차량</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= othersWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="others/<%= othersWheels[i]._id %>">
-                    <%= othersWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= othersWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-      </div>
-      <h2 class=" my-3"><a href="/bmw">수입휠 / BMW</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= bmwWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="bmw/<%= bmwWheels[i]._id %>">
-                    <%= bmwWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= bmwWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-      </div>
-      <h2 class=" my-3"><a href="/benz">수입휠 / 벤츠</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= benzWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="benz/<%= benzWheels[i]._id %>">
-                    <%= benzWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= benzWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-      </div>
-      <h2 class=" my-3"><a href="/importedothers">수입휠 / 기타 수입 차량</a></h2>
-      <div class="row align-items-end mb-5">
-        <% for(let i=0; i < 3; i++) { %>
-          <div class="col-4">
-            <div class="card my-3">
-              <img src="<%= importedothersWheels[i].image %> " alt="">
-              <div class="card-body">
-                <i class="fa-solid fa-medal"></i>
-                <p class="card-text">
-                  <a href="importedothers/<%= importedothersWheels[i]._id %>">
-                    <%= importedothersWheels[i].name %>
-                  </a>
-                  <br>
-                  <span>
-                    <%= importedothersWheels[i].price.toLocaleString() %>원
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <% } %>
-      </div>
-    </div>
+    </header>
+    <main class="px-3">
+      <h1>신품·중고 <span class="text-red">휠 / 타이어</span> 종합 물류 매장</h1>
+      <p class="lead my-5"> 고객 여러분들께서 원하시는 모든 차종의 품질 좋은 휠/타이어를 보유하고 있으니 <br> 주저하지 마시고 저희 휠/타이어 종합 물류 매장을 방문해주세요 <br>
+        <a href="/recommend" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white mt-5 mb-5">둘러보기</a>
+    </main>
+    <footer class="mt-auto text-white">
+      <p>&copy; 2022 휠/타이어 종합물류매장 </p>
+    </footer>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

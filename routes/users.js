@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
-const { isLoggedIn } = require('../middleware');
+const { isLoggedIn, currentPage } = require('../middleware');
 const users = require('../controllers/users');
 
 router.route('/edit_user')
@@ -19,6 +19,8 @@ router.route('/login')
   .get(users.goToLogin)
   .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
-router.post('/logout', isLoggedIn, users.logout)
+router.route('/logout')
+  .get(isLoggedIn, users.logout)
+  .post(isLoggedIn, users.logout)
 
 module.exports = router;    

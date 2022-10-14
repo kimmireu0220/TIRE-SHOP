@@ -57,7 +57,10 @@ module.exports.login = (req, res) => {
 
 module.exports.logout = (req, res, next) => {
   req.logout((err) => {
-    if (err) { return next(err); }
-    res.redirect('/');
+    if (err) {
+      return next(err);
+    } else {
+      res.redirect('/');
+    }
   });
 }

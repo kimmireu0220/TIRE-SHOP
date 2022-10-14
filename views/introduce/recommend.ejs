@@ -1,0 +1,138 @@
+<% layout('layouts/boilerplate') %>
+  <div class="row justify-content-center align-self-center">
+    <h1>추 천 상 품</h1>
+    <div class="container pt-5"">
+      <h2 class=" my-3"><a href="/hyundai">국산휠 / 현대</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= hyundaiWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="hyundai/<%= hyundaiWheels[i]._id %>">
+                    <%= hyundaiWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= hyundaiWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <h2 class=" my-3"><a href="/kia">국산휠 / 기아</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= kiaWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="kia/<%= kiaWheels[i]._id %>">
+                    <%= kiaWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= kiaWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <h2 class=" my-3"><a href="/others">국산휠 / 기타 차량</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= othersWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="others/<%= othersWheels[i]._id %>">
+                    <%= othersWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= othersWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <h2 class=" my-3"><a href="/bmw">수입휠 / BMW</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= bmwWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="bmw/<%= bmwWheels[i]._id %>">
+                    <%= bmwWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= bmwWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <h2 class=" my-3"><a href="/benz">수입휠 / 벤츠</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= benzWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="benz/<%= benzWheels[i]._id %>">
+                    <%= benzWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= benzWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <h2 class=" my-3"><a href="/importedothers">수입휠 / 기타 수입 차량</a></h2>
+      <div class="row align-items-end mb-5">
+        <% for(let i=0; i < 3; i++) { %>
+          <div class="col-4">
+            <div class="card my-3">
+              <img src="<%= importedothersWheels[i].image %> " alt="">
+              <div class="card-body">
+                <i class="fa-solid fa-medal"></i>
+                <p class="card-text">
+                  <a href="importedothers/<%= importedothersWheels[i]._id %>">
+                    <%= importedothersWheels[i].name %>
+                  </a>
+                  <br>
+                  <span>
+                    <%= importedothersWheels[i].price.toLocaleString() %>원
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>

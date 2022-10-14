@@ -10,14 +10,22 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const ExpressError = require('./utils/ExpressError');
 
+const adminRoutes = require('./routes/admin');
+const userRoutes = require('./routes/users');
+const introduceRoutes = require('./routes/introduce');
+const categoryRoutes = require('./routes/category');
+const wheelRoutes = require('./routes/wheel');
+
+const app = express();
+
+module.exports = wheelsPerPage = 1;
+
 async function main() {
   await mongoose.connect('mongodb://localhost:27017/tireShop');
   console.log("Mongo connection open");
 }
 
 main().catch(err => console.log(err));
-
-const app = express();
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -54,19 +62,15 @@ app.use((req, res, next) => {
   next();
 })
 
-module.exports = wheelsPerPage = 1;
-
-const adminRoutes = require('./routes/admin');
-const userRoutes = require('./routes/users');
-const homeRoutes = require('./routes/home');
-const categoryRoutes = require('./routes/category');
-const wheelRoutes = require('./routes/wheel');
-
 app.use('/', adminRoutes);
 app.use('/', userRoutes);
-app.use('/', homeRoutes);
+app.use('/', introduceRoutes);
 app.use('/', categoryRoutes);
 app.use('/:company', wheelRoutes);
+
+app.get('/', (req, res) => {
+  res.render('home');
+})
 
 app.all('*', (req, res, next) => {
   next(new ExpressError('Page Not Found(404)', 404))
