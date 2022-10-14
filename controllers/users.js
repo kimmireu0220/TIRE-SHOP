@@ -1,3 +1,4 @@
+const { connect } = require('mongoose');
 const User = require('../models/user');
 let redirectUrl;
 
@@ -57,10 +58,8 @@ module.exports.login = (req, res) => {
 
 module.exports.logout = (req, res, next) => {
   req.logout((err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.redirect('/');
-    }
+    if (err) { return next(err); }
   });
+  redirectUrl = req.session.returnTo || '/';
+  res.redirect(redirectUrl);
 }

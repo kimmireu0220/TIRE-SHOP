@@ -69,6 +69,7 @@ app.use('/', categoryRoutes);
 app.use('/:company', wheelRoutes);
 
 app.get('/', (req, res) => {
+  req.session.returnTo = req.originalUrl;
   res.render('home');
 })
 
