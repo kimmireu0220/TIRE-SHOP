@@ -1,3 +1,5 @@
+module.exports = wheelsPerPage = 1;
+
 const express = require('express');
 const ejsMate = require('ejs-mate');
 const path = require('path');
@@ -17,8 +19,6 @@ const categoryRoutes = require('./routes/category');
 const wheelRoutes = require('./routes/wheel');
 
 const app = express();
-
-module.exports = wheelsPerPage = 1;
 
 async function main() {
   await mongoose.connect('mongodb://localhost:27017/tireShop');

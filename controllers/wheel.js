@@ -2,6 +2,7 @@ const Wheel = require('../models/wheel');
 const Reservation = require('../models/reservation');
 
 module.exports.goToShow = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   const { id } = req.params;
   const wheel = await Wheel.findById(id);
   const { originalUrl } = req;

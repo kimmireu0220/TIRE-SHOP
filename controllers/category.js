@@ -21,25 +21,31 @@ async function setIndex(companyKR, companyEN, page, res) {
 }
 
 module.exports.hyundai = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('현대', 'hyundai', req.query.page, res);
 }
 
 module.exports.kia = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('기아', 'kia', req.query.page, res);;
 }
 
 module.exports.others = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('기타 차량', 'others', req.query.page, res);
 }
 
 module.exports.bmw = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('BMW', 'bmw', req.query.page, res);
 }
 
 module.exports.benz = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('벤츠', 'benz', req.query.page, res);
 }
 
 module.exports.importedothers = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   setIndex('기타 수입 차량', 'importedothers', req.query.page, res);
 }
