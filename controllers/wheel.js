@@ -1,4 +1,5 @@
 const Wheel = require('../models/wheel');
+const User = require('../models/user');
 const Reservation = require('../models/reservation');
 
 module.exports.goToShow = async (req, res) => {
@@ -52,15 +53,9 @@ module.exports.reserve = async (req, res, next) => {
   await user.save();
   await reservation.save();
   req.flash('success', '예약 완료!');
-  res.redirect('/');
-}
-
-module.exports.deleteReservation = async (req, res) => {
-  const { _id } = req.user;
-  const { reservationId } = req.params;
-  await User.findByIdAndUpdate(_id, { $pull: { reservations: reservationId } });
-  await Reservation.findByIdAndDelete(reservationId);
-  res.redirect('/reservations');
+  const { originalUrl } = req;
+  const redirectUrl = originalUrl.replace('/reserve', '');
+  res.redirect(redirectUrl);
 }
 
 

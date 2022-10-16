@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
-const { isLoggedIn, currentPage } = require('../middleware');
+const { isLoggedIn } = require('../middleware');
 const users = require('../controllers/users');
 
 router.route('/edit_user')
@@ -10,6 +10,8 @@ router.route('/edit_user')
   .post(isLoggedIn, catchAsync(users.edit))
 
 router.get('/my_reservations', isLoggedIn, catchAsync(users.goToMyReservations))
+
+router.delete('/my_reservations/:reservationId', catchAsync(users.deleteReservation))
 
 router.route('/register_user')
   .get(users.goToRegister)

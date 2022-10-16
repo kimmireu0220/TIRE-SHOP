@@ -21,6 +21,4 @@ router.route('/:id/reserve')
   .get(isLoggedIn, catchAsync(wheel.goToReserve))
   .post(isLoggedIn, validateReservation, catchAsync(wheel.reserve))
 
-router.delete('/:id/reservations/:reservationId', isLoggedIn, catchAsync(wheel.deleteReservation))
-
 module.exports = router;

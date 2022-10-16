@@ -1,5 +1,5 @@
-const { connect } = require('mongoose');
 const User = require('../models/user');
+const Reservation = require('../models/reservation');
 let redirectUrl;
 
 module.exports.goToEdit = (req, res) => {
@@ -21,10 +21,23 @@ module.exports.edit = async (req, res) => {
 };
 
 module.exports.goToMyReservations = async (req, res) => {
+  req.session.returnTo = req.originalUrl;
   let count = 1;
   const { user } = req;
   const { reservations } = await user.populate('reservations');
   res.render('users/reservations', { reservations, count });
+}
+
+module.exports.deleteReservation = async (req, res) => {
+  const { _id } = req.user;
+  const { reservationId } = req.params;
+  const { originalUrl } = req;
+  console.log(originalUrl);
+  const redirectUrl = originalUrl.replace(`/${reservationId}?_method=DELETE`, '');
+  console.log(redirectUrl);
+  await User.findByIdAndUpdate(_id, { $pull: { reservations: reservationId } });
+  await Reservation.findByIdAndDelete(reservationId);
+  res.redirect(redirectUrl);
 }
 
 module.exports.goToRegister = (req, res) => {
@@ -63,3 +76,4 @@ module.exports.logout = (req, res, next) => {
   redirectUrl = req.session.returnTo || '/';
   res.redirect(redirectUrl);
 }
+
