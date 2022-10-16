@@ -6,6 +6,7 @@ module.exports.goToRegisterWheel = (req, res) => {
 }
 
 module.exports.registerWheel = async (req, res) => {
+  console.log(req.body.wheel);
   const wheel = new Wheel(req.body.wheel);
   await wheel.save();
   res.redirect(`/wheels/${wheel._id}`);

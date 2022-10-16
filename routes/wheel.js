@@ -3,6 +3,9 @@ const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn, isAdmin, validateWheel, validateReservation } = require('../middleware');
 const wheel = require('../controllers/wheel');
+const introduce = require('../controllers/introduce');
+
+router.get('/', catchAsync(introduce.recommend))
 
 router.route('/:id')
   .get(catchAsync(wheel.goToShow))
