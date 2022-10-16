@@ -4,12 +4,15 @@ const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn, isAdmin, validateWheel, validateReservation } = require('../middleware');
 const wheel = require('../controllers/wheel');
 const introduce = require('../controllers/introduce');
+const multer = require('multer');
+const { storage } = require('../cloudinary');
+const upload = multer({ storage });
 
 router.get('/', catchAsync(introduce.recommend))
 
 router.route('/:id')
   .get(catchAsync(wheel.goToShow))
-  .put(isAdmin, validateWheel, catchAsync(wheel.edit))
+  .put(isAdmin, upload.single('image'), validateWheel, catchAsync(wheel.edit))
   .delete(isAdmin, catchAsync(wheel.delete))
 
 router.get('/:id/edit', isAdmin, catchAsync(wheel.goToEdit))

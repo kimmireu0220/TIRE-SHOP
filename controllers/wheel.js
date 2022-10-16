@@ -12,7 +12,9 @@ module.exports.goToShow = async (req, res) => {
 module.exports.edit = async (req, res) => {
   const { id } = req.params;
   const redirectUrl = req.originalUrl.replace('?_method=PUT', '');
-  await Wheel.findByIdAndUpdate(id, { ...req.body.wheel });
+  const wheel = await Wheel.findByIdAndUpdate(id, { ...req.body.wheel });
+  wheel.image = req.file.path;
+  await wheel.save();
   req.flash('success', '편집 완료!');
   res.redirect(redirectUrl);
 }

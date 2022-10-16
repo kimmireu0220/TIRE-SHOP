@@ -4,7 +4,7 @@ module.exports.wheelSchema = Joi.object({
   wheel: Joi.object({
     name: Joi.string().required(),
     price: Joi.number().required().min(0),
-    image: Joi.string().required(),
+    // image: Joi.string().required(),
     category: Joi.string().required(),
     quantity: Joi.number().required().min(0),
     owner: Joi.string().required(),
