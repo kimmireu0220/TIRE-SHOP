@@ -26,7 +26,7 @@ async function main() {
   console.log("Mongo connection open");
 }
 
-main().catch((err) => console.log(err));
+main().catch((error) => console.log(error));
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
