@@ -2,4 +2,4 @@
 
 In the project directory, you can run:
 
-`nodemon app.js`
+`node app.js`
